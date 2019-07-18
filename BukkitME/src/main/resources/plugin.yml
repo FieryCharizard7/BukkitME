@@ -1,0 +1,88 @@
+name: BukkitME
+version: ${project.version}
+description: The most powerful, configurable, open-source GroupME bridge plugin out there.
+author: FieryCharizard7
+website: https://github.com/FieryCharizard7/BukkitME
+api-version: 1.13
+
+main: github.FieryCharizard7.bukkitme.BukkitME
+database: false
+
+
+commands:
+  GroupME:
+    description: GroupME commands
+    usage: |
+           /GroupME - Show the invite link of the GroupME server
+           /GroupME help/? - Show command list
+           /GroupME link - Link Minecraft account with GroupME account
+           /GroupME unlink - Remove link between Minecraft and GroupME account
+           /GroupME linked - Show information about linking status
+           /GroupME broadcast - Broadcast a message to GroupME
+           /GroupME setpicture - Set the avatar of the bot
+           /GroupME debug - Send debug information to Gist
+           /GroupME reload - Reload the plugin
+permissions:
+  GroupMEsrv.player:
+    description: parent permission of player-related functions of GroupMESRV
+    default: true
+    children:
+      GroupMEsrv.chat: true
+      GroupMEsrv.help: true
+      GroupMEsrv.link: true
+      GroupMEsrv.linked: true
+  GroupMEsrv.admin:
+    description: parent permission of admin-related functions of GroupMESRV
+    default: op
+    children:
+      GroupMEsrv.player: true
+      GroupMEsrv.updatenotification: true
+      GroupMEsrv.bcast: true
+      GroupMEsrv.setpicture: true
+      GroupMEsrv.reload: true
+      GroupMEsrv.debug: true
+      GroupMEsrv.linked.others: true
+      GroupMEsrv.unlink: true
+      GroupMEsrv.unlink.others: true
+  GroupMEsrv.chat:
+    description: whether or not the user is able to have their chat forwarded to GroupME
+    default: true
+  GroupMEsrv.silentjoin:
+    description: whether or not to have join messages for players with this permission to be silenced
+    default: false
+  GroupMEsrv.silentquit:
+    description: whether or not to have quit messages for players with this permission to be silenced
+    default: false
+  GroupMEsrv.help:
+    description: whether or not the player is able to display command help for GroupMESRV
+    default: true
+  GroupMEsrv.updatenotification:
+    description: whether or not the player should be told if there's an update to GroupMESRV when joining
+    default: op
+  GroupMEsrv.bcast:
+    description: whether or not the player is able to broadcast messages to the main text channel of GroupMESRV
+    default: op
+  GroupMEsrv.setpicture:
+    description: whether or not the player is able to set the bot's avatar picture
+    default: op
+  GroupMEsrv.reload:
+    description: whether or not the player is able to reload GroupMESRV's configuration
+    default: op
+  GroupMEsrv.debug:
+    description: whether or not the player is able to run a debug report
+    default: op
+  GroupMEsrv.link:
+    description: whether or not the player is able to link their Minecraft account to their GroupME account
+    default: true
+  GroupMEsrv.unlink:
+    description: whether or not the player is able to unlink their Minecraft account from their GroupME account
+    default: op
+  GroupMEsrv.unlink.others:
+    description: whether or not the player is able to unlink other people's accounts
+    default: op
+  GroupMEsrv.linked:
+    description: whether or not the player is able to check what GroupME account their Minecraft account is linked to
+    default: true
+  GroupMEsrv.linked.others:
+    description: whether or not the player is able to check what GroupME account other Minecraft accounts are linked to
+    default: op
